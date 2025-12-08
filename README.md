@@ -45,7 +45,7 @@ Internet connection (if using cloud AI model)
 
 Installation
 # Clone the repository
-git clone https://github.com/yourusername/study-material-detector.git
+git clone https://github.com/Kothamoni/study-material-detector.git
 
 # Navigate into the project
 cd study-material-detector
@@ -87,9 +87,10 @@ study-material-detector/
 
 🔹 Integrate with Google Drive / OneDrive for storage
 
-👨‍💻 Contributors
+👨‍💻 Contributor
 
-Umme Nafisa Anzum Kotha – Project Lead
+Umme Nafisa Anzum Kotha
+
 
 Team AI Innovators – Model training and testing
 
