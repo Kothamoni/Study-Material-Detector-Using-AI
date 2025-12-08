@@ -94,4 +94,4 @@ Umme Nafisa Anzum Kotha
 
 Team AI Innovators – Model training and testing
 
-<div align="center"> <p>Made with ❤️ using HTML, CSS, Tailwind, JavaScript, and TensorFlow.js</p> <p>Bangladesh University of Professionals | Software Testing & Maintenance (STM) - December 2025</p> </div>
+<div align="center"> <p>Made with ❤️ using HTML, CSS, Tailwind, JavaScript, and TensorFlow.js</p> <p>Bangladesh University of Professionals | December 2025</p> </div>
