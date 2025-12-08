@@ -1,5 +1,5 @@
 🧠 Study Material Detector Using AI
-<div align="center"> <img src="./images/logo.png" alt="Study Material Detector Logo" width="250"> </div> <br/>
+<div align="center"> <img src=".Image/StudyDetectorLogo.png" alt="Study Material Detector Logo" width="250"> </div> <br/>
 
 Study Material Detector is an AI-powered tool that can automatically classify different types of study materials from images.
 It is designed to help students organize and manage their study resources efficiently.
