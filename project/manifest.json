@@ -1,0 +1,11 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "studymaterialdetectorusingai.netlify",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "studymaterialdetectorusingai.netlify",
+  "start_url": "/",
+  "theme_color": "#ffffff"
+}
