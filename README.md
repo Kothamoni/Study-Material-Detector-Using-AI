@@ -62,7 +62,7 @@ Wait for the AI model to classify the image.
 
 View the detected category and confidence score.
 
-🌐 Live Demo
+
 
 ## 🌐 Live Demo
 
