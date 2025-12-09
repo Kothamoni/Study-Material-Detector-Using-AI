@@ -72,6 +72,7 @@ View the detected category and confidence score.
   </a>
 </div>
 
+
 📊 Project Structure
 study-material-detector/
 ├── index.html          # Main web page
