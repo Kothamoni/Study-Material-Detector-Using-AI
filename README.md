@@ -67,7 +67,7 @@ View the detected category and confidence score.
 ## 🌐 Live Demo
 
 <div align="center">
-  <a href="https://studymaterialdetectorusingai.netlify.app/" target="_blank">
+  <a href="(https://study-material-detector-using-ai-wc.vercel.app/)" target="_blank">
     <strong>🚀 Visit Study Material Detector Using AI</strong>
   </a>
 </div>
