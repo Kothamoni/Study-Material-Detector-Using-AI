@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Material Detector</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="global.css">
+
+  <!-- TensorFlow + Teachable Machine -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+</head>
+
+<body class="flex flex-col min-h-screen font-[Inter] bg-gray-50">
+
+  <!-- NAVBAR -->
+  <nav class="bg-purple-600 text-white px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <span class="text-2xl">📚</span>
+      <div>
+        <h1 class="font-bold text-lg">Study Material Detector</h1>
+        <p class="text-sm">AI-powered analysis of your study notes</p>
+      </div>
+    </div>
+
+    <span id="navbarScore" class="font-bold text-lg">Score: 0%</span>
+
+    <button id="open-modal-btn" class="font-bold hover:text-blue-300">
+      How Scoring Works?
+    </button>
+  </nav>
+
+  <!-- MODAL -->
+  <div id="study-modal-overlay"
+    class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center opacity-0 pointer-events-none transition">
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-md p-6 relative">
+
+      <button id="close-modal-btn"
+        class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-xl">✕</button>
+
+      <h2 class="text-xl font-bold mb-2">Understanding Your Study Score</h2>
+      <p class="text-sm text-gray-500 mb-4">Score is based on study effectiveness</p>
+
+      <div class="space-y-3">
+        <p><span class="font-bold text-green-600">90–100:</span> Handwritten Notes</p>
+        <p><span class="font-bold text-blue-600">80–90:</span> Flash Cards</p>
+        <p><span class="font-bold text-yellow-600">70–80:</span> Printed Materials</p>
+        <p><span class="font-bold text-red-600">20–40:</span> Cheat Sheets</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPLOAD SECTION -->
+  <section class="bg-white p-8 rounded-xl shadow-md mt-6 w-11/12 mx-auto text-center">
+    <h2 class="text-2xl font-semibold mb-2">Upload Your Study Material</h2>
+    <p class="text-gray-600 mb-4">Upload an image of your notes or study materials</p>
+
+    <input type="file" id="fileInput" accept="image/*" class="hidden">
+    <button onclick="document.getElementById('fileInput').click()"
+      class="bg-purple-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-purple-700">
+      Choose Image
+    </button>
+
+    <div id="preview" class="mt-4"></div>
+    <div id="image-result" class="mt-4 text-lg font-semibold"></div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="mt-10 w-11/12 mx-auto">
+    <h2 class="text-xl font-bold mb-4 text-center">How It Works</h2>
+
+    <div class="space-y-6">
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <div class="text-3xl">📤</div>
+        <h3 class="font-semibold">Step 1</h3>
+        <p class="text-gray-600 text-sm">Upload your study material</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <div class="text-3xl">🧠</div>
+        <h3 class="font-semibold">Step 2</h3>
+        <p class="text-gray-600 text-sm">AI analyzes the image</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <div class="text-3xl">🏆</div>
+        <h3 class="font-semibold">Step 3</h3>
+        <p class="text-gray-600 text-sm">Get score and feedback</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DETECT -->
+  <section class="mt-10 w-11/12 mx-auto">
+    <h2 class="text-xl font-bold mb-4 text-center">What We Can Detect</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-green-500">
+        📖
+        <h3 class="font-semibold">Handwritten Notes</h3>
+        <p class="text-green-600 font-bold">90–100</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-blue-500">
+        💳
+        <h3 class="font-semibold">Flash Cards</h3>
+        <p class="text-blue-600 font-bold">80–90</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-yellow-500">
+        🖨️
+        <h3 class="font-semibold">Printed Pages</h3>
+        <p class="text-yellow-600 font-bold">70–80</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-red-500">
+        📄
+        <h3 class="font-semibold">Cheat Sheets</h3>
+        <p class="text-red-600 font-bold">20–40</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-100 text-gray-600 text-center py-4 mt-10">
+    © 2025 Study Material Detector. All rights reserved.
+  </footer>
+
+  <!-- JS -->
+  <script src="homepage.js"></script>
+
+  <script>
+    const openBtn = document.getElementById("open-modal-btn");
+    const closeBtn = document.getElementById("close-modal-btn");
+    const modal = document.getElementById("study-modal-overlay");
+
+    openBtn.onclick = () => {
+      modal.classList.remove("opacity-0", "pointer-events-none");
+    };
+
+    closeBtn.onclick = () => {
+      modal.classList.add("opacity-0", "pointer-events-none");
+    };
+  </script>
+
+</body>
+</html>
